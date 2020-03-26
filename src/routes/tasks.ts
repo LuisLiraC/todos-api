@@ -16,7 +16,7 @@ export const tasks = (app: Application) => {
   router.get('/', validateToken, async (req, res) => {
     try {
       const tasks = await getTasks(req.user_id)
-      return response.sucess(req, res, tasks, 200)
+      return response.sucess(req, res, tasks)
     } catch (error) {
       console.log(error)
       return response.error(req, res)
@@ -36,7 +36,7 @@ export const tasks = (app: Application) => {
   router.put('/:id', validateToken, async (req, res) => {
     try {
       await updateTask(req.params.id, req.body, req.user_id)
-      response.sucess(req, res, 'Task updated', 200)
+      response.sucess(req, res, 'Task updated')
     } catch(error) {
       console.log(error)
       return response.error(req, res)
@@ -46,7 +46,7 @@ export const tasks = (app: Application) => {
   router.delete('/:id', validateToken, async (req, res) => {
     try {
       await deleteTask(req.params.id, req.user_id)
-      response.sucess(req, res, 'Task deleted', 200)
+      response.sucess(req, res, 'Task deleted')
     } catch(error) {
       console.log(error)
       return response.error(req, res)

@@ -1,10 +1,15 @@
-import { Request, Response } from 'express'
-import { connect } from '../database/database'
+import { connect } from '../database'
 import { ITask } from '../interface/Task'
 
 export async function getTasks(user_id: number) {
   const conn = await connect()
   const [tasks] = await conn.query('SELECT * FROM tasks WHERE user_id = ?', [user_id])
+  return tasks
+}
+
+export async function getTasksByCategory(user_id: number, category_id: string) {
+  const conn = await connect()
+  const [tasks] = await conn.query('SELECT * FROM tasks WHERE user_id = ? AND category_id = ?', [user_id, category_id])
   return tasks
 }
 

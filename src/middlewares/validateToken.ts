@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { connect } from '../database/database'
+import { connect } from '../database'
 import { IUser } from '../interface/User'
 import response from '../response'
 import auth from '../auth'

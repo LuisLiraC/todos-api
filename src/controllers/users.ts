@@ -1,5 +1,5 @@
-import { Request, Response, json } from 'express'
-import { connect } from '../database/database'
+import { Request, Response } from 'express'
+import { connect } from '../database'
 import { IUser } from '../interface/User'
 import auth from '../auth/index'
 import bcryptjs from 'bcryptjs'
